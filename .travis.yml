@@ -1,6 +1,8 @@
 language: minimal
 dist: bionic
 sudo: required
+git:
+  depth: 5
 
 services:
   - docker

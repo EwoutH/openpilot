@@ -1,4 +1,9 @@
 sudo: required
+dist: bionic
+
+arch:
+  - amd64
+  - arm64
 
 services:
   - docker

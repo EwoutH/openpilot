@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
     opencl-headers \
     python-dev \
     python-pip \
+    python3-pip \
     screen \
     sudo \
     vim \
@@ -52,7 +53,8 @@ RUN pyenv install 3.7.3
 RUN pyenv global 3.7.3
 RUN pyenv rehash
 
-RUN pip install pipenv==2018.11.26
+RUN pip install -U pip
+RUN pip install -U git+git://github.com/pypa/pipenv
 
 COPY Pipfile /tmp/
 COPY Pipfile.lock /tmp/

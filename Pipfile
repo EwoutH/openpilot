@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+opencv-python = "*"
 keras_applications = "*"
 "backports.lzma" = "*"
 reverse_geocoder = "*"
@@ -12,9 +13,12 @@ scons = "*"
 pylint = "*"
 jinja2 = "*"
 pre-commit = "*"
-azure-storage-blob = "*"
+azure-storage-blob = "~=2.1"
 parameterized = "*"
 matplotlib = "*"
+dictdiffer = "*"
+pycurl = "*"
+coverage = "*"
 
 [packages]
 Cython = "*"

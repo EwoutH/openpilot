@@ -1,9 +1,5 @@
 name: simulator
-on:
-  push:
-    paths:
-    - 'Pipfile'
-    - '.github/workflows/sim_tests.yaml'
+on: push
 
 jobs:
   docker_build:

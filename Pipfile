@@ -73,6 +73,16 @@ pylint = "*"
 [packages]
 Cython = "*"
 websocket_client = "*"
+pycapnp = "*"
+raven = "*"
+psutil = "*"
+smbus2 = "*"
+libusb1 = "*"
+setproctitle = "*"
+sympy = "*"
+hexdump = "*"
+nose = "*"
+atomicwrites = "*"
 
 [requires]
 python_version = "3.8"

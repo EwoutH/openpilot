@@ -67,6 +67,8 @@ mypy = "*"
 parameterized = "*"
 torch = "*"
 torchsummary = "*"
+scons = "*"
+pylint = "*"
 
 [packages]
 Cython = "*"

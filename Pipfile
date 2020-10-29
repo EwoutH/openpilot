@@ -10,6 +10,8 @@ reverse_geocoder = "*"
 scipy = "*"
 scons = "*"
 pylint = "*"
+jinja2 = "*"
+pre-commit = "*"
 
 [packages]
 Cython = "*"

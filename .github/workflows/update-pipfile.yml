@@ -23,7 +23,7 @@ jobs:
       with:
         name: "Pipfile lock"
         path: Pipfile.lock
-    - uses: peter-evans/create-pull-request@v2
+    - uses: peter-evans/create-pull-request@v3
       with:
         title: "Update Pipfile.lock (dependencies)"
         branch: update-pipfile

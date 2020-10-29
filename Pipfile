@@ -19,6 +19,8 @@ matplotlib = "*"
 dictdiffer = "*"
 pycurl = "*"
 coverage = "*"
+tenacity = "*"
+fastcluster = "*"
 
 [packages]
 Cython = "*"

@@ -5,6 +5,7 @@ on:
   push:
     paths:
     - 'Pipfile'
+    - '.github/workflows/update-pipfile.yml'
 
 jobs:
   piplock:

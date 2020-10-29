@@ -3,7 +3,7 @@ on:
   push:
     paths:
     - 'Pipfile'
-    - '.github/workflows'
+    - '.github/workflows/'
 
 jobs:
   docker_build:

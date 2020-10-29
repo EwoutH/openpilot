@@ -14,12 +14,14 @@ jinja2 = "*"
 pre-commit = "*"
 azure-storage-blob = "*"
 parameterized = "*"
+matplotlib = "*"
 
 [packages]
 Cython = "*"
 crcmod = "*"
 websocket_client = "*"
 pycapnp = "*"
+pyzmq = "*"
 raven = "*"
 psutil = "*"
 smbus2 = "*"
@@ -30,6 +32,10 @@ hexdump = "*"
 nose = "*"
 atomicwrites = "*"
 tqdm = "*"
+PyJWT = "*"
+pyserial = "*"
+json-rpc = "*"
+Logentries = {git = "https://github.com/commaai/le_python.git",ref = "feaeacb48f7f4bdb02c0a8fc092326d4e101b7f2"}
 
 [requires]
 python_version = "3.8"

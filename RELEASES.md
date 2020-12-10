@@ -13,6 +13,7 @@ Version 0.8.1 (2020-12-21)
  * Fixed issue where some Toyotas would not completely stop thanks to briskspirit!
  * Toyota Camry 2021 with TSS2.5 support
  * Hyundai Ioniq Electric 2020 support thanks to baldwalker!
+ * update to Python 3.9.1
 
 Version 0.8.0 (2020-11-30)
 ========================
@@ -472,7 +473,7 @@ Version 0.3.9 (2017-11-21)
  * Enable Forward Collision Warning
  * Acura ILX now maintains openpilot engaged at standstill when brakes are applied
 
-Version 0.3.8.2 (2017-10-30)
+Version 0.3.9.1 (2017-10-30)
 ==========================
  * Add alpha support for 2017 Toyota RAV4
  * Smoother lateral control

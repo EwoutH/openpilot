@@ -1,0 +1,31 @@
+name: "Update Pipfile.lock"
+on:
+  schedule:
+    - cron: '00 08 * * 1' # Every monday on 08:00 UTC
+  push:
+    paths:
+    - 'Pipfile'
+    - '.github/workflows/update-pipfile.yml'
+
+jobs:
+  piplock:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        sudo apt update
+        sudo apt-get install libssl-dev libcurl4-openssl-dev
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - run: pip install wheel
+    - run: pip install pipenv
+    - run: pipenv lock --requirements
+    - uses: actions/upload-artifact@v2
+      with:
+        name: "Pipfile lock"
+        path: Pipfile.lock
+    - uses: peter-evans/create-pull-request@v3
+      with:
+        title: "Update Pipfile.lock (dependencies)"
+        branch: update-pipfile

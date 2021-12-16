@@ -16,5 +16,5 @@ jobs:
       with:
         title: "Pyupgrade to Python 3.6"
         branch: pyupgrade-36
-        base: main
+        base: f-strings
         commit-message: "[Bot] Pyupgrade to Python 3.6"

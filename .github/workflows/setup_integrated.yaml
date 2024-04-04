@@ -27,4 +27,4 @@ jobs:
     - uses: actions/checkout@v4
       with:
         submodules: true
-    - uses: ./.github/workflows/setup-pre-commit
+    - uses: ./.github/workflows/setup-with-retry

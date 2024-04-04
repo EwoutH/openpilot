@@ -28,3 +28,64 @@ jobs:
       with:
         submodules: true
     - uses: ./.github/workflows/setup-with-retry
+
+
+  setup-environment:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Cache Python Dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cache/pip
+          ~/.pyenv
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/poetry.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update && sudo apt-get install -y --no-install-recommends \
+        sudo tzdata locales ssh pulseaudio xvfb x11-xserver-utils gnome-screenshot \
+        apt-utils alien unzip tar curl xz-utils dbus gcc-arm-none-eabi tmux vim lsb-core libx11-6
+        sudo locale-gen en_US.UTF-8
+      env:
+        DEBIAN_FRONTEND: noninteractive
+        LANG: en_US.UTF-8
+        LANGUAGE: en_US:en
+        LC_ALL: en_US.UTF-8
+
+    - name: Install OpenCL and Other Dependencies
+      run: |
+        mkdir -p ${{ github.workspace }}/dependencies
+        if [ ! -f ${{ github.workspace }}/dependencies/opencl-installed ]; then
+          sudo apt-get update
+          # Specify your dependency installation commands here
+          echo "OpenCL and other dependencies installation steps"
+          touch ${{ github.workspace }}/dependencies/opencl-installed
+        fi
+
+    - name: Setup Python Environment
+      run: |
+        if [ ! -d "$PYENV_ROOT" ]; then
+          # Install PyEnv, Python, and Poetry here
+          echo "Python environment setup steps"
+        fi
+      env:
+        PYENV_ROOT: ${{ github.workspace }}/.pyenv
+        PATH: $PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
+
+    - name: Install Python Dependencies
+      run: |
+        # Assuming poetry is used for Python dependency management
+        poetry install
+      if: steps.cache.outputs.cache-hit != 'true'
+
+    - name: Cleanup and Final Setup
+      run: |
+        sudo rm -rf /var/lib/apt/lists/* /tmp/*
+        sudo dbus-uuidgen > /etc/machine-id
